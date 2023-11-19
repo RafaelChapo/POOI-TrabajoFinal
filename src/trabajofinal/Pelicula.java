@@ -42,3 +42,10 @@ public class Pelicula {
         return "Titulo: " + titulo + "\nGenero: " + genero + "\nClasificación: " + clasificacion + "\nCartelera: "+ cartelera + "\n";
     }
 }
+
+
+
+
+
+
+
