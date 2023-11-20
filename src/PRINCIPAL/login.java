@@ -52,7 +52,6 @@ public class login extends javax.swing.JInternalFrame {
         jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 190, 30));
 
-        jPasswordField1.setText("jPasswordField1");
         jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
