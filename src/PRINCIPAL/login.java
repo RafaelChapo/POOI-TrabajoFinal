@@ -4,17 +4,30 @@
  */
 package PRINCIPAL;
 
+import controller.LoginController;
+import javax.swing.JOptionPane;
+import model.DAO.Base;
+import model.Usuario;
+
 /**
  *
  * @author USER
  */
-public class login extends javax.swing.JInternalFrame {
+public class Login extends javax.swing.JInternalFrame {
 
+    private char contrasena;
+    
+    
+    private final LoginController controller; 
     /**
-     * Creates new form login
+     * Creates new form Login
      */
-    public login() {
+    public Login() {
         initComponents();
+        Base.inicia();
+        controller = new LoginController(this);
+        contrasena = jPasswordField1.getEchoChar(); 
+        
     }
 
     /**
@@ -106,7 +119,20 @@ public class login extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String nombre =  jTextField1.getText(); 
+         String contrasenha = new String(jPasswordField1.getPassword());
+         Usuario usuario = new Usuario(0,nombre, contrasenha,1);
+         
+         Usuario usuarioExiste = controller.loginSistema(usuario);
+         
+         
+         if(usuarioExiste != null){
+             Principal menuPrincipal = new Principal();
+            menuPrincipal.setVisible(true);
+            this.dispose();
+         }else{
+             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
+         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

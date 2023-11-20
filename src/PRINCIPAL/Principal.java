@@ -97,7 +97,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void oploginUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oploginUsuarioActionPerformed
-        login verventana = new login();
+        Login verventana = new Login();
            escritorio.add(verventana);
         verventana.show();
          
@@ -105,7 +105,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        loginAdmin verventana2 = new loginAdmin();
+        LoginAdmin verventana2 = new LoginAdmin();
         escritorio.add(verventana2);
         verventana2.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed

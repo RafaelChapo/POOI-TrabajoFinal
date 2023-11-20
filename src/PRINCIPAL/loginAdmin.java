@@ -4,17 +4,28 @@
  */
 package PRINCIPAL;
 
+import controller.LoginAdminController;
+import javax.swing.JOptionPane;
+import model.DAO.Base;
+import model.Usuario;
+
 /**
  *
  * @author USER
  */
-public class loginAdmin extends javax.swing.JInternalFrame {
+public class LoginAdmin extends javax.swing.JInternalFrame {
 
+    private char contrasena;
+    private final LoginAdminController controller; 
     /**
-     * Creates new form loginAdmin
+     * Creates new form Login
      */
-    public loginAdmin() {
+    public LoginAdmin() {
         initComponents();
+        Base.inicia();
+        controller = new LoginAdminController(this);
+        contrasena = jPasswordField1.getEchoChar(); 
+        
     }
 
     /**
@@ -50,7 +61,6 @@ public class loginAdmin extends javax.swing.JInternalFrame {
         jTextField1.setCaretColor(new java.awt.Color(255, 255, 255));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 190, 30));
 
-        jPasswordField1.setText("jPasswordField1");
         jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +111,20 @@ public class loginAdmin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       String nombre =  jTextField1.getText(); 
+         String contrasenha = new String(jPasswordField1.getPassword());
+         Usuario usuario = new Usuario(0,nombre, contrasenha,1);
+         
+         Usuario usuarioExiste = controller.loginSistema(usuario);
+         
+         
+         if(usuarioExiste != null){
+             Principal menuPrincipal = new Principal();
+            menuPrincipal.setVisible(true);
+            this.dispose();
+         }else{
+             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
+         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
