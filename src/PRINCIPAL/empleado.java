@@ -81,7 +81,7 @@ public class empleado extends javax.swing.JInternalFrame {
 
         jLabel3.setText("PELICULA");
 
-        deployPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oppenheimer", "Los asesinos de la luna", "John wick 4", "Spiderman: Cruzando el Multiverso", "barbie", "TAR", "Mision imposible: Sentencia Mortal", "Super Mario Bros", "Los Fobelman", "FNAF" }));
+        deployPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Oppenheimer", "Los asesinos de la luna", "John wick 4", "Spiderman: Cruzando el Multiverso", "Barbie", "TAR", "Mision imposible: Sentencia Mortal", "Super Mario Bros", "Los Fobelman", "FNAF" }));
         deployPelicula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deployPeliculaActionPerformed(evt);
@@ -369,9 +369,10 @@ public class empleado extends javax.swing.JInternalFrame {
     private void deployPeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deployPeliculaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deployPeliculaActionPerformed
+    
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cantidadNInoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cantidadNInoActionPerformed
