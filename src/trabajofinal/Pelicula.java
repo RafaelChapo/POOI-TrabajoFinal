@@ -8,13 +8,13 @@ package trabajofinal;
  *
  * @author Piero
  */
-public class Pelicula {
+public class Pelicula { 
     private String titulo;
     private String genero;
     private String clasificacion;
     private String cartelera;
 
-    public Pelicula(String titulo, String genero, String clasificacion, String cartelera) {
+    public Pelicula( String titulo, String genero, String clasificacion, String si) {
         this.titulo = titulo;
         this.genero = genero;
         this.clasificacion = clasificacion;

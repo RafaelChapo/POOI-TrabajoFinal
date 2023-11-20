@@ -8,13 +8,19 @@ package PRINCIPAL;
  *
  * @author USER
  */
+import trabajofinal.peliculainterfaz;
+import javax.swing.table.DefaultTableModel;
 public class Administrador extends javax.swing.JInternalFrame {
-
+     private DefaultTableModel model;
+     private String[] header={"idpelicula" ," nombre" , "genero" , "cartelera" , "clasificaion"};
+    private Object JTABLE;
     /**
      * Creates new form Administrador
      */
     public Administrador() {
         initComponents();
+        initTable();
+        
     }
 
     /**
@@ -33,11 +39,11 @@ public class Administrador extends javax.swing.JInternalFrame {
         txtGenero = new javax.swing.JTextField();
         txtCartelera = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtIdpelicula = new javax.swing.JTextField();
+        txtidpelicula = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtClasificacion = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JTable = new javax.swing.JTable();
         btnInsertar = new javax.swing.JButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -46,9 +52,9 @@ public class Administrador extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jTextfila = new javax.swing.JTextField();
+        jTextcolumna = new javax.swing.JTextField();
+        jTextdato = new javax.swing.JTextField();
         txtnombre = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
 
@@ -80,26 +86,26 @@ public class Administrador extends javax.swing.JInternalFrame {
         jLabel4.setText("CARTELERA");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
-        txtIdpelicula.addActionListener(new java.awt.event.ActionListener() {
+        txtidpelicula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtIdpeliculaActionPerformed(evt);
+                txtidpeliculaActionPerformed(evt);
             }
         });
-        jPanel1.add(txtIdpelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 100, -1));
+        jPanel1.add(txtidpelicula, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 100, -1));
 
         jLabel5.setText("CLASIFICACION");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
         jPanel1.add(txtClasificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 100, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID_PELICULA", "NOMBRE", "GENERO", "CARTELERA", "CLASIFICAION"
+                "ID PELICULA", "NOMBRE", "GENERO", "CARTELERA", "CLASIFICACION"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(JTable);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, 500, 260));
 
@@ -112,6 +118,11 @@ public class Administrador extends javax.swing.JInternalFrame {
         jPanel1.add(btnInsertar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
 
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, -1, -1));
 
         btnEliminar.setText("Eliminar");
@@ -123,6 +134,11 @@ public class Administrador extends javax.swing.JInternalFrame {
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, -1, -1));
 
         txtEliminarTodo.setText("Eliminar Todo");
+        txtEliminarTodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEliminarTodoActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtEliminarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, -1, -1));
 
         jButton1.setText("volver");
@@ -141,15 +157,15 @@ public class Administrador extends javax.swing.JInternalFrame {
 
         jLabel8.setText("NUEVO DATO");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 200, -1, -1));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 100, -1));
+        jPanel1.add(jTextfila, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 100, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextcolumna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextcolumnaActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 100, -1));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 100, -1));
+        jPanel1.add(jTextcolumna, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 100, -1));
+        jPanel1.add(jTextdato, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 100, -1));
 
         txtnombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,37 +194,70 @@ public class Administrador extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtGeneroActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code her
+                                       
     }//GEN-LAST:event_txtGeneroActionPerformed
 
-    private void txtIdpeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdpeliculaActionPerformed
+    private void txtidpeliculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidpeliculaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtIdpeliculaActionPerformed
+    }//GEN-LAST:event_txtidpeliculaActionPerformed
 
     private void btnInsertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertarActionPerformed
         // TODO add your handling code here:
-
+       String idpelicula = txtidpelicula.getText();
+         String nombre = txtnombre.getText();
+         String genero =txtGenero.getText();
+         String cartelera = txtCartelera.getText();
+         String clasificacion = txtClasificacion.getText();  
+        
+      peliculainterfaz p = new  peliculainterfaz(idpelicula,nombre,genero,cartelera,clasificacion);
+      model.addRow(p.toArray());
+      txtidpelicula.setText("");
+      txtnombre.setText("");
+      txtGenero.setText("");
+      txtCartelera.setText("");
+      txtClasificacion.setText("");
     }//GEN-LAST:event_btnInsertarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        // TODO add your handling code here:
 
+         if (JTable.getSelectedRowCount()!=1){
+             return;
+         }
+         int fila =JTable.getSelectedRow();
+         model.removeRow(fila);
     }//GEN-LAST:event_btnEliminarActionPerformed
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void jTextcolumnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextcolumnaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
+    }//GEN-LAST:event_jTextcolumnaActionPerformed
+     
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
+      
     }//GEN-LAST:event_txtnombreActionPerformed
+
+    private void txtEliminarTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEliminarTodoActionPerformed
+                int filas = JTable.getRowCount();
+                for(int i =filas -1 ; i>=0; i--){
+                    model.removeRow(i);
+                }       
+    }//GEN-LAST:event_txtEliminarTodoActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+       int fila=Integer.parseInt(jTextfila.getText());
+       int columna=Integer.parseInt(jTextcolumna.getText());
+        model.setValueAt(jTextdato.getText() , fila, columna);
+        
+    }//GEN-LAST:event_btnModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JTable;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnInsertar;
     private javax.swing.JButton btnModificar;
@@ -224,15 +273,28 @@ public class Administrador extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextcolumna;
+    private javax.swing.JTextField jTextdato;
+    private javax.swing.JTextField jTextfila;
     private javax.swing.JTextField txtCartelera;
     private javax.swing.JTextField txtClasificacion;
     private javax.swing.JButton txtEliminarTodo;
     private javax.swing.JTextField txtGenero;
-    private javax.swing.JTextField txtIdpelicula;
+    private javax.swing.JTextField txtidpelicula;
     private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
-}
+
+    private void initTable() {
+    model = new DefaultTableModel(header, 0){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        JTable.setModel(model);
+    }     
+            
+    }
+     
+
+
