@@ -415,7 +415,7 @@ public class empleado extends javax.swing.JInternalFrame {
             if (pelicula.isEmpty() || horario.isEmpty() ||  pagoTotalEsc == 0 || metodoDePago == 0) {
                  a.setText("Error registrando los datos de la compra");
             } else {
-                 writer.write(pelicula + "$" + horario + "$" + ticketsNinos + "$" + ticketsAdultos +  "$" + pagoTotalEsc + "$" + metodoDePago + "\n");
+                 writer.write("Pelicula: " + pelicula + "\tHorario: " + horario + "\tCantidad Niños: " + ticketsNinos + "\tCantidad Adultos: " + ticketsAdultos +  "\tPago total: " + pagoTotalEsc + "\tTipo de pago: " + metodoDePago + "\n");
                   a.setText("Registro guardado exitosamente.");
             }
            
