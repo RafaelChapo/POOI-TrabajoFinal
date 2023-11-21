@@ -127,9 +127,14 @@ public class Login extends javax.swing.JInternalFrame {
          
          
          if(usuarioExiste != null){
-             Principal menuPrincipal = new Principal();
-            menuPrincipal.setVisible(true);
-            this.dispose();
+            if(usuarioExiste.getNivelAcceso() == 1){ 
+                Principal menuPrincipal = new Principal();
+                menuPrincipal.setVisible(true);
+                this.dispose();
+                JOptionPane.showMessageDialog(this, "Usuario correcto!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario incorrecto");
+            }
          }else{
              JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
          }

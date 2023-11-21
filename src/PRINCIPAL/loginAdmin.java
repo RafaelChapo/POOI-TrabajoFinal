@@ -118,10 +118,15 @@ public class LoginAdmin extends javax.swing.JInternalFrame {
          Usuario usuarioExiste = controller.loginSistema(usuario);
          
          
-         if(usuarioExiste != null){
-             Principal menuPrincipal = new Principal();
-            menuPrincipal.setVisible(true);
-            this.dispose();
+        if(usuarioExiste != null){
+            if(usuarioExiste.getNivelAcceso() == 2){ 
+                Principal menuPrincipal = new Principal();
+                menuPrincipal.setVisible(true);
+                this.dispose();
+                JOptionPane.showMessageDialog(this, "Usuario correcto!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Usuario incorrecto");
+            }
          }else{
              JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto", "ERROR", JOptionPane.ERROR_MESSAGE);
          }
